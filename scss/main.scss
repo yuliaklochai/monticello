@@ -16,19 +16,21 @@ a {
 }
 img {
     object-fit: cover;
-    width: 100%;
-    height: auto;
+    max-width: 100%;
 }
 .header {
-    background: linear-gradient(243.43deg, $color_secondary 16.9%, $color_main 83.27%), url('../img/background.jpg');
-    height: 100vh;
+    padding: 40px calc(50% - 600px);
+    position: absolute;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    z-index: 10;
 }
 .nav {
     flex-grow: 1;
     display: flex;
+    align-items: center;
 }
 .menu {
     display: flex;
@@ -65,5 +67,141 @@ img {
     }
 }
 .banner {
+    background: linear-gradient(243.43deg, $color_secondary 16.9%, $color_main 83.27%), url('../img/background.jpg');
+    height: 100vh;
+    &__slider{
+        position: relative;
+        .slick-track {
+            height: 100%;
+        }
+        .slick-list {
+            overflow: hidden;
+            height: 100%;
+        }
+        .slick-dots {
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            & li {
+                margin: 40px 0;
+            }
+            & li button{
+                font-size: 0;
+                width: 10px;
+                height: 10px;
+                border: 1px solid $color_title_light;
+                border-radius: 50%;
+                background: transparent;
+            }
+            .slick-active button {
+                background: $color_title_light;
+            }
+        }
+    }
+}
+.slider {
+    height: 100%;
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.06;
+        }
+        &_1::before{
+            background: url('../img/slider_1.jpg') no-repeat;
+            background-size: cover;
+        }
+        &_2::before{
+            background: url('../img/slider_2.jpg') no-repeat;
+            background-size: cover;
+        }
+        &_3::before{
+            background: url('../img/slider_3.jpg') no-repeat;
+            background-size: cover;
+        }
+        &_4::before{
+            background: url('../img/slider_1.jpg') no-repeat;
+            background-size: cover;
+        }
+        &_5::before{
+            background: url('../img/slider_5.jpg') no-repeat;
+            background-size: cover;
+        }
+    }
+    &__title{
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 80px;
+        line-height: 1.2;
+        letter-spacing: 0.1em;
+        color: $color_title_light;
+        z-index: 3;
+    }
+    &__subtitle {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.2;
+        letter-spacing: 0.3em;
+        color: $color_title_light;
+        z-index: 3;
+    }
     
+}
+.projects {
+    text-align: center;
+    padding: 130px calc(50% - 600px);
+    &__block {
+        display:flex;
+        justify-content: space-between;
+        text-align: start;
+        max-height: 470px;
+        &_reverse {
+            flex-direction: row-reverse;
+        }
+    }
+    &__img {
+        max-width: 50%;
+        overflow: hidden;
+    }
+    &__title {
+        font-size: 44px;
+        line-height: 1.2;
+        color: $color_text;
+        font-weight: 700;
+        font-family: $font_title;
+    }
+    &__subtitle {
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 1.2;
+        font-family: $font_title;
+        color: $color_text;
+    }
+    &__text {
+        font-family: $font_text;
+        font-size: 18px;
+        line-height: 1.6;
+        color: $color_text;
+        margin: 20px 0 40px 0;
+        max-width: 470px;
+    }
+    &__btn {
+        font-family: $font_title;
+        font-size: 14px;
+        line-height: 1.2;
+        color: $color_text_btn;
+        background: #fff;
+        border: 1px solid $color_text;
+        cursor: pointer;
+        padding: 15px 40px;
+    }
 }
