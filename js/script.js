@@ -1,4 +1,4 @@
-$('.banner__slider').slick({
+$('.vertical-slider').slick({
     infinity: true,
     arrows: false,
     dots: true,
@@ -8,4 +8,11 @@ $('.banner__slider').slick({
     slidesToScroll: 1,
     // autoplay: true,
     // autoplaySpeed: 2000,
+});
+
+$('.slider').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    arrows: true,
+    dots: true,
 });
