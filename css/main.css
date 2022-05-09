@@ -466,4 +466,87 @@ img {
   line-height: 1.6;
   color: #55B7FF;
 }
+
+.gallery {
+  padding: 130px calc(50% - 600px);
+  text-align: center;
+}
+
+.gallery__title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 44px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: center;
+  color: #2C4058;
+}
+
+.gallery__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 10px;
+  margin: 90px 0 60px 0;
+}
+
+.gallery__street-view {
+  position: relative;
+}
+
+.gallery__street-view iframe {
+  width: 600px;
+  height: 450px;
+}
+
+.gallery__street-view::before {
+  content: '';
+  display: block;
+  width: 70px;
+  height: 70px;
+  background: url("../img/360.png");
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.gallery__photos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gallery__img {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 calc((100% / 2) - 2rem);
+          flex: 1 1 calc((100% / 2) - 2rem);
+  overflow: hidden;
+}
+
+.gallery__img img {
+  height: 100%;
+  width: auto;
+}
+
+.gallery__button {
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #000;
+  border: 1px solid #2C4058;
+  padding: 15px 55px;
+  background: #fff;
+}
 /*# sourceMappingURL=main.css.map */

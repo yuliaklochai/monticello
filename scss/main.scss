@@ -353,3 +353,67 @@ img {
         color: $color_main;
     }
 }
+
+.gallery {
+    padding: 130px calc(50% - 600px);
+    text-align: center;
+    &__title {
+        font-family: $font_title;
+        font-weight: bold;
+        font-size: 44px;
+        line-height: 1.2;
+        text-transform: uppercase;
+        text-align: center;
+        color: $color_text;
+    }
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 90px 0 60px 0;
+    }
+    &__street-view {
+        // width: 50%;
+        position: relative;
+        & iframe {
+            width: 600px;
+            height: 450px;
+            
+        }
+        &::before {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 70px;
+            background: url('../img/360.png');
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    &__photos {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    &__img {
+        flex: 1 1 calc((100% / 2) - 2rem);
+        overflow: hidden;
+        & img {
+            height: 100%;
+            width: auto;
+        }
+    }
+    &__button {
+        text-transform: uppercase;
+        font-family: $font_title;
+        font-size: 14px;
+        line-height: 1.2;
+        color: #000;
+        border: 1px solid $color_text;
+        padding: 15px 55px;
+        background: #fff;
+    }
+}

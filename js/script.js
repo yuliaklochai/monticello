@@ -16,3 +16,8 @@ $('.slider').slick({
     arrows: true,
     dots: true,
 });
+
+
+//gallery
+
+lightGallery(document.querySelector('.gallery__photos'));
