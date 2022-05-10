@@ -8,3 +8,34 @@
       font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$max_width_screen}));
     }
   }
+
+  @mixin flex-rule($justify-content, $flex-direction, $align-items, $flex-wrap) {
+    display: flex;
+    justify-content: $justify-content;
+    flex-direction: $flex-direction;
+    align-items: $align-items;
+    flex-wrap: $flex-wrap;
+}
+
+  @mixin slider-background($url) {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.06;
+    background: $url no-repeat;
+    background-size: cover;
+  }
+  @mixin border-radius() {
+    border-radius: 50%;
+    border: 1px solid #FFF;
+  }
+
+  @mixin pseudo-element($width, $height, $background) {
+    content: "";
+    display: block;
+    width: $width;
+    height: $height;
+    background: $background;
+    position: absolute;
+  }

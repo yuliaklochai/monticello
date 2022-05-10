@@ -19,20 +19,23 @@ img {
     object-fit: cover;
     max-width: 100%;
 }
+body, 
+html {
+    line-height: 1.2;
+    color: $color_text;
+
+}
 .header {
     position: absolute;
     padding: 40px $padding_wrapper;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex-rule(space-between, row, center, nowrap);
     width: 100%;
     z-index: 10;
     &_fixed {
         position: fixed;
         top: 0;
-        background: linear-gradient(243.43deg, $color_secondary 16.9%, $color_main 83.27%);
-        padding-top: 10px;
-        padding-bottom: 10px;
+        background: $gradient;
+        padding: 10px $padding_wrapper;
     }
     .logo {
         max-width: 50%;
@@ -40,29 +43,20 @@ img {
 }
 .nav {
     flex-grow: 1;
-    display: flex;
-    align-items: center;
+    @include flex-rule(flex-start, row, center, nowrap);
 }
 .menu {
-    display: flex;
     flex-grow: 1;
-    justify-content: space-evenly;
+    @include flex-rule(space-evenly, row, stretch, nowrap);
     &__link {
         text-transform: uppercase;
         color: $color_title_light;
         font-family: $font_nav;
         font-size: 14px;
-        line-height: 1.3;
         position: relative;
         &::before{
-            content: "";
-            display: block;
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            border: 1px solid #FFF;
-            background: transparent;
-            position: absolute;
+            @include pseudo-element(9px, 9px, transparent);
+            @include border-radius();
             top: 50%;
             transform: translateY(-50%);
             left: -25px;
@@ -73,12 +67,10 @@ img {
     }
 }
 .social {
-    display: flex;
-    justify-content: space-between;
+    @include flex-rule(space-between, row, stretch, nowrap);
     gap: 20px;
     &__item {
-        border: 1px solid #fff;
-        border-radius: 50%;
+        @include border-radius();
         width: 40px;
         height: 40px;
         text-align: center;
@@ -104,7 +96,7 @@ img {
     background-color: #fff;
 }
 .banner {
-    background: linear-gradient(243.43deg, $color_secondary 16.9%, $color_main 83.27%);
+    background: $gradient;
     height: 100vh;
     position: relative;
     &__slider{
@@ -128,8 +120,7 @@ img {
                 font-size: 0;
                 width: 10px;
                 height: 10px;
-                border: 1px solid $color_title_light;
-                border-radius: 50%;
+                @include border-radius();
                 background: transparent;
                 cursor: pointer;
             }
@@ -145,18 +136,13 @@ img {
         transform: translateX(-50%);
         width: 40px;
         height: 40px;
-        border: 1px solid #fff;
-        border-radius: 50%;
+        @include border-radius();
         cursor: pointer;
         &::before {
-            content: '';
-            display: block;
-            height: 7px;
-            width: 7px;
+            @include pseudo-element(7px, 7px, transparent);
             border-bottom: 1px solid #fff;
             border-left: 1px solid #fff;
             transform: translate(-50%, -50%) rotateZ(315deg);
-            position: absolute;
             top: 50%;
             left: 50%;
             transition: all 0.4s ease 0s;
@@ -169,45 +155,29 @@ img {
 .vertical-slider {
     height: 100%;
     &__item {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include flex-rule(center, column, center, nowrap);
         height: 100vh;
         position: relative;
-        &::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0.06;
-        }
         &_1::before{
-            background: url('../img/slider_1.jpg') no-repeat;
-            background-size: cover;
+            @include slider-background(url('../img/slider_1.jpg'));
         }
         &_2::before{
-            background: url('../img/slider_2.jpg') no-repeat;
-            background-size: cover;
+            @include slider-background(url('../img/slider_2.jpg'));
         }
         &_3::before{
-            background: url('../img/slider_3.jpg') no-repeat;
-            background-size: cover;
+            @include slider-background(url('../img/slider_3.jpg'));
         }
         &_4::before{
-            background: url('../img/slider_1.jpg') no-repeat;
-            background-size: cover;
+            @include slider-background(url('../img/slider_1.jpg'));
         }
         &_5::before{
-            background: url('../img/slider_5.jpg') no-repeat;
-            background-size: cover;
+            @include slider-background(url('../img/slider_5.jpg'));
         }
     }
     &__title{
         text-transform: uppercase;
         font-weight: 700;
         @include adaptive_font(80, 40);
-        line-height: 1.2;
         letter-spacing: 0.1em;
         color: $color_title_light;
         z-index: 3;
@@ -215,7 +185,6 @@ img {
     &__subtitle {
         font-weight: 400;
         @include adaptive_font(18, 14);
-        line-height: 1.2;
         letter-spacing: 0.3em;
         color: $color_title_light;
         z-index: 3;
@@ -227,9 +196,7 @@ img {
     padding: 130px $padding_wrapper;
     overflow: hidden;
     &__block {
-        display:flex;
-        justify-content: space-between;
-        text-align: start;
+        @include flex-rule(space-between, row, flex-end, nowrap);
         max-height: 470px;
         margin: 90px 0 140px 0;
         &_reverse {
@@ -237,7 +204,7 @@ img {
         }
     }
     &__img {
-        max-width: 40%;
+        max-width: 50%;
         min-height: 300px;
         overflow: hidden;
         box-shadow: -120px -60px 0 0 $color_main;
@@ -258,18 +225,17 @@ img {
             width: 100%;
         }
     }
+    &__content {
+        text-align: start;
+    }
     &__subtitle {
-        font-weight: 400;
         @include adaptive_font(22, 16);
-        line-height: 1.2;
         font-family: $font_title;
-        color: $color_text;
     }
     &__text {
         font-family: $font_text;
         @include adaptive_font(18, 14);
         line-height: 1.6;
-        color: $color_text;
         margin: 20px 0 40px 0;
         max-width: 470px;
     }
@@ -284,14 +250,10 @@ img {
         color: $color_text_btn;
         position: relative;
         padding: 15px;
+        text-align: start;
         &::before {
-            content: '';
-            display: block;
-            width: 9px;
-            height: 17px;
-            background: url('../img/location.png') no-repeat;
+            @include pseudo-element(9px, 17px, url('../img/location.png') no-repeat);
             background-position:center;
-            position: absolute;
             left: 0;
         }
     }
@@ -299,7 +261,7 @@ img {
 .news {
     padding: 130px $padding_wrapper;
     text-align: center;
-    background: url('../img/news_background.png'), linear-gradient(237.1deg, #24CCFA 11.16%, #3C7FD4 89.18%);
+    background: url('../img/news_background.png'), $gradient;
     background-repeat: no-repeat;
     background-position: bottom;
     &__title {
@@ -310,8 +272,7 @@ img {
         overflow: hidden;
     }
     .slick-track {
-        display: flex;
-        justify-content: space-evenly;
+        @include flex-rule(space-evenly, row, stretch, nowrap);
     }
     .slick-arrow {
         position: absolute;
@@ -320,8 +281,7 @@ img {
         font-size: 0;
         width: 40px;
         height: 40px;
-        border-radius: 50%;
-        border: 1px solid #fff;
+        @include border-radius();
         background: transparent;
         cursor: pointer;
         z-index: 3;
@@ -332,7 +292,6 @@ img {
         &.slick-next {
             right: -50px;
             background: url('../img/arrow-right.svg') center no-repeat;
-            // transform: rotate(-180deg);
         }
         &.slick-prev {
             left: -50px;
@@ -341,17 +300,15 @@ img {
     }
     .slick-dots {
         list-style: none;
-        display: flex;
+        @include flex-rule(center, row, stretch, nowrap);
         gap: 40px;
-        justify-content: center;
         margin-top: 60px;
         & li button {
             font-size: 0;
             height: 10px;
             width: 10px;
-            border-radius: 50%;
+            @include border-radius();
             background: transparent;
-            border: 1px solid #fff;
             cursor: pointer;
         }
         & .slick-active button{
@@ -366,12 +323,15 @@ img {
         background: #ffffff;
         margin: 0 15px;
         cursor: pointer;
+        @include flex-rule(space-between, column, stretch, nowrap);
         &:hover {
             transform: scale(1.05);
         }
     }
     &__content {
         padding: 30px 20px;
+        flex-grow: 1;
+        @include flex-rule(space-between, column, stretch, nowrap);
     }
     &__img {
         height: 240px;
@@ -385,20 +345,16 @@ img {
         font-style: bold;
         text-transform: uppercase;
         @include adaptive_font(22, 17);
-        line-height: 1.2;
-        color: $color_text;
         margin-bottom: 15px;
     }
     &__text {
         font-family: $font_text;
         @include adaptive_font(18, 14);
         line-height: 1.4;
-        color: $color_text;
     }
     &__author {
-        display: flex;
+        @include flex-rule(flex-start, row, center, nowrap);
         gap: 20px;
-        align-items: center;
         margin-top: 40px;
     }
 }
@@ -410,8 +366,6 @@ img {
         text-transform: uppercase;
         font-family: $font_title;
         @include adaptive_font(18, 14);
-        line-height: 1.2;
-        color: $color_text;
     }
     &__date {
         font-family: $font_title;
@@ -428,8 +382,7 @@ img {
         text-align: center;
     }
     &__container {
-        display: flex;
-        justify-content: space-between;
+        @include flex-rule(space-between, row, stretch, nowrap);
         gap: 10px;
         margin: 90px 0 60px 0;
     }
@@ -442,12 +395,7 @@ img {
             height: 100%;
         }
         &::before {
-            content: '';
-            display: block;
-            width: 70px;
-            height: 70px;
-            background: url('../img/360.png');
-            position: absolute;
+            @include pseudo-element(70px, 70px, url('../img/360.png'));
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -457,9 +405,7 @@ img {
         }
     }
     &__photos {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
+        @include flex-rule(center, row, stretch, wrap);
         gap: 10px;
     }
     &__img {
@@ -472,26 +418,16 @@ img {
             width: 100%;
         }
         &:hover::before {
-            content: '';
-            display: block;
-            position: absolute;
-            width: 50px;
-            height: 50px;
+            @include pseudo-element(50px, 50px, url("../img/svg/magnifying-glass.svg"));
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: url("../img/svg/magnifying-glass.svg");
             background-size: contain;
             z-index: 10;
         }
         &:hover::after {
-            content: '';
-            display: block;
-            width: 100%;
-            height: 100%;
-            position: absolute;
+            @include pseudo-element(100%, 100%, $gradient);
             top: 0;
-            background: linear-gradient(243.43deg, $color_secondary 16.9%, $color_main 83.27%);
             opacity: 0.8;
         }
     }
@@ -503,24 +439,20 @@ img {
     height: 500px;
 }
 .footer {
-    padding: 200px $padding_wrapper;
+    padding: 200px $padding_wrapper 100px;
     background: url('../img/footer_background.png'), linear-gradient(251.06deg, $color_secondary -2.19%, $color_main 103.21%);
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: cover;
     position: relative;
     &__block {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include flex-rule(space-between, row, center, wrap);
         margin: 45px 0;
-        flex-wrap: wrap;
         gap: 10px;
     }
     &__copy {
         font-family: $font_title;
         @include adaptive_font(14, 11);
-        line-height: 1.2;
         color: #fff;
     }
 }
@@ -540,8 +472,7 @@ img {
         margin-bottom: 40px;
     }
     &__container {
-        display: flex;
-        justify-content: space-between;
+        @include flex-rule(space-between, row, stretch, nowrap);
     }
     &__item {
         font-family: $font_title;
@@ -550,28 +481,23 @@ img {
         margin: 15px 0;
         position: relative;
         &::before {
-            content: '';
-            display: block;
-            height: 15px;
-            width: 15px;
             background-size: contain;
-            position: absolute;
             bottom: 0;
             top: 50%;
             transform: translateY(-50%);
             left: -25px;
         }
         &_location::before {
-            background: url("../img/svg/location.svg") no-repeat;
+            @include pseudo-element(15px, 15px, url("../img/svg/location.svg") no-repeat);
         }
         &_phone::before {
-            background: url("../img/svg/phone.svg") no-repeat;
+            @include pseudo-element(15px, 15px, url("../img/svg/phone.svg") no-repeat);
         }
         &_mail::before {
-            background: url("../img/svg/mail.svg") no-repeat;
+            @include pseudo-element(15px, 15px, url("../img/svg/mail.svg") no-repeat);
         }
         &_time::before {
-            background: url("../img/svg/clock.svg") no-repeat;
+            @include pseudo-element(15px, 15px, url("../img/svg/clock.svg") no-repeat);
         }
     }
     &__link {
@@ -582,10 +508,7 @@ img {
     }
 }
 .form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
+    @include flex-rule(space-between, column, flex-end, nowrap);
     flex-basis: 50%;
     &__input{
         background: transparent;
@@ -596,10 +519,10 @@ img {
         font-family: $font_title;
         @include adaptive_font(18, 14);
         line-height: 1.5;
-        color: #2C4058;
+        color: $color_text;
         height: 40px;
         &:focus {
-            border-bottom: 1px solid #2C4058;
+            border-bottom: 1px solid $color_text;
         }
         &::placeholder {
             color: rgba(44, 64, 88, 0.2);
