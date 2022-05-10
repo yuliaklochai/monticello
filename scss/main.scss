@@ -34,6 +34,9 @@ img {
         padding-top: 10px;
         padding-bottom: 10px;
     }
+    .logo {
+        max-width: 50%;
+    }
 }
 .nav {
     flex-grow: 1;
@@ -128,6 +131,7 @@ img {
                 border: 1px solid $color_title_light;
                 border-radius: 50%;
                 background: transparent;
+                cursor: pointer;
             }
             .slick-active button {
                 background: $color_title_light;
@@ -526,6 +530,8 @@ img {
     left: 50%;
     transform: translateX(-50%);
     background: url("../img/contact_background.png"), #fff;
+    background-repeat: no-repeat;
+    background-position: bottom;
     padding: 90px 60px 70px;
     width: 100%;
     max-width: 770px;

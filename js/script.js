@@ -5,11 +5,11 @@ $('.vertical-slider').slick({
     arrows: false,
     dots: true,
     vertical: true,
-    verticalSwiping: true,
+    verticalSwiping: false,
     slidesToShow: 1,
     slidesToScroll: 1,
-    // autoplay: true,
-    // autoplaySpeed: 2000,
+    autoplay: true,
+    autoplaySpeed: 2000,
 });
 
 $('.slider').slick({
@@ -136,6 +136,7 @@ if(animItems.length > 0) {
 lightGallery(document.querySelector('.gallery__photos')), {
   speed: 500,
   thumbnail: true,
+
 };
 
 //map

@@ -106,6 +106,10 @@ img {
   padding-bottom: 10px;
 }
 
+.header .logo {
+  max-width: 50%;
+}
+
 .nav {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
@@ -238,6 +242,7 @@ img {
   border: 1px solid #FFFFFF;
   border-radius: 50%;
   background: transparent;
+  cursor: pointer;
 }
 
 .banner__slider .slick-dots .slick-active button {
@@ -866,6 +871,8 @@ img {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   background: url("../img/contact_background.png"), #fff;
+  background-repeat: no-repeat;
+  background-position: bottom;
   padding: 90px 60px 70px;
   width: 100%;
   max-width: 770px;
@@ -1168,7 +1175,7 @@ img {
 
 @media screen and (max-width: 576px) {
   .contact {
-    top: -70%;
+    padding: 50px;
   }
   .contact__container {
     -webkit-box-orient: vertical;
