@@ -14,7 +14,10 @@ $color_text_btn: #000;
 
 //Device
 $laptop_width: 992px;
-$tablet_width: 768px;
+$tablet_width: 769px;
 $mobile_width: 576px;
 
 $max_width_screen: 1280;
+
+$padding_wrapper: calc(50% - 600px);
+

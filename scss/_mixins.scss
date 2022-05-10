@@ -1,0 +1,10 @@
+@mixin adaptive_font($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $addMobSize: $addSize + $addSize * 0.7;
+    @media screen and (max-width: $tablet_width) {
+      font-size: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 320px) / #{$max_width_screen}));
+    }
+    @media screen and (min-width: $tablet_width) {
+      font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$max_width_screen}));
+    }
+  }

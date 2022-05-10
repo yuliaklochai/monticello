@@ -11,6 +11,11 @@
 </head>
 <body>
     <header class="header">
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
         <div class="logo">
             <img src="./img/logo.png" alt="" class="logo__img">
         </div>
@@ -29,7 +34,7 @@
                     <a href="#contact" class="menu__link">Contact</a>
                 </li>
             </ul>
-            <ul class="social">
+            <ul class="nav__social social">
                 <li class="social__item">
                     <a href="https://www.facebook.com/" target="_blank" class="social__link">
                         <svg class="social__img">
@@ -53,6 +58,7 @@
                 </li>
             </ul>
         </nav>
+        
     </header>
     <main class="main">
         <section class="banner" id="about-us">
@@ -78,18 +84,19 @@
                     <h3 class="vertical-slider__subtitle">WE MAKE THE WORLD BEAUTIFUL EVERYDAY</h3>
                 </div>
             </div>
+            <a class="banner__scroll" href="#projects"></a>
         </section>
         <section class="projects" id="projects">
-            <h2 class="projects__title">What We Do</h2>
+            <h2 class="projects__title title">What We Do</h2>
             <div class="projects__block">
                 <div class="projects__img">
                     <img src="./img/project_1.jpg" alt="">
                 </div>
                 <div class="projects__content">
                     <h3 class="projects__subtitle">One World</h3>
-                    <h2 class="projects__title">Trade Center</h2>
+                    <h2 class="projects__title title">Trade Center</h2>
                     <p class="projects__text">Increasing prosperity in our lives can be accomplished by having the right frame of mind. The truth is, our thoughts are very powerful.</p>
-                    <button class="projects__btn">More Details</button>
+                    <button class="projects__btn btn">More Details</button>
                     <p class="projects__location">New York City, United States - 1776 feet</p>
                 </div>
             </div>
@@ -99,15 +106,15 @@
                 </div>
                 <div class="projects__content">
                     <h3 class="projects__subtitle">International</h3>
-                    <h2 class="projects__title">Commerce Centre</h2>
+                    <h2 class="projects__title title">Commerce Centre</h2>
                     <p class="projects__text">Successful businesses have many things in common, today we’ll look at the big ‘R’ of recognition and how a digital advertising network may help.</p>
-                    <button class="projects__btn">More Details</button>
+                    <button class="projects__btn btn">More Details</button>
                     <p class="projects__location">Hong Kong - 1588 feet</p>
                 </div>
             </div>
         </section>
         <section class="news" id="news">
-            <h2 class="news__title">Latest News</h2>
+            <h2 class="news__title title">Latest News</h2>
             <div class="news__slider slider">
                 <div class="slider__item">
                     <div class="slider__img">
@@ -202,7 +209,7 @@
             </div>
         </section>
         <section class="gallery">
-            <h2 class="gallery__title">GALLERY</h2>
+            <h2 class="gallery__title title">GALLERY</h2>
             <div class="gallery__container">
                 <div class="gallery__street-view">
                     <iframe src="https://www.google.com/maps/embed?pb=!4v1652098369406!6m8!1m7!1sCAoSLEFGMVFpcE1XbENRVm5RX05fRDN4M1VwaFVrTzZpRld4cFZ1VWNrYWMwS1F3!2m2!1d43.6532297!2d-79.3843136!3f275.5930281765552!4f40.951665988798055!5f1.1808744904248836" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -222,24 +229,30 @@
                     </a>
                 </div>
             </div>
-            <button class="gallery__button">SEE MORE</button>
+            <button class="gallery__button btn">SEE MORE</button>
         </section>
         <section class="map"></section>
     </main>
     <footer class="footer">
         <div class="footer__contact contact" id="contact">
-            <h2 class="contact__title">Get in Touch</h2>
+            <h2 class="contact__title title">Get in Touch</h2>
             <div class="contact__container">
                 <ul class="contact__info">
-                    <li class="contact__item contact__item_location" >91 Nolan Extensions Suite 670</li>
-                    <li class="contact__item contact__item_phone">+001 356-868-2454</li>
-                    <li class="contact__item contact__item_mail">montichello@service.com</li>
+                    <li class="contact__item contact__item_location" > <a href="https://www.google.com/maps/place/@41.1211517,-73.4362361,16.07z" target="_blank" class="contact__link">91 Nolan Extensions Suite 670</a></li>
+                    <li class="contact__item contact__item_phone"><a href="tel:+380506332604" target="_blank" class="contact__link">+001 356-868-2454</a></li>
+                    <li class="contact__item contact__item_mail"><a href="mailto:montichello@service.com" target="_blank" class="contact__link">montichello@service.com</a></li>
                     <li class="contact__item contact__item_time">From 07:05AM to 19:30PM</li>
                 </ul>
-                <form action="get" class="contact__form form">
+                <form class="contact__form form" method="get">
+
                     <input type="text" name="" id="name" class="form__input" placeholder="Name">
-                    <input type="email" name="" id="email" class="form__input" placeholder="Email">
-                    <button type="submit" class="form__btn">Submit</button>
+                    <p class="error"></p>
+
+                    <input type="email" id="email" class="form__input" placeholder="Email">
+                    <p class="error"></p>
+
+                    <button type="submit" class="form__btn btn">Submit</button>
+                    
                 </form>
             </div>
         </div>

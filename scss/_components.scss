@@ -1,0 +1,35 @@
+.title {
+    @include adaptive_font(44, 30);
+    line-height: 1.2;
+    color: $color_text;
+    font-weight: 700;
+    font-family: $font_title;
+    text-transform: uppercase;
+}
+
+.btn {
+    font-family: $font_title;
+    @include adaptive_font(14, 12);
+    line-height: 1.2;
+    color: $color_text_btn;
+    text-transform: uppercase;
+    background: #fff;
+    border: 1px solid $color_text;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    &::before {
+        content: '';
+        display: block;
+        width: 190px;
+        height: 50px;
+        position: absolute;
+        top: 49px;
+        left: -1px;
+        background-color: #2C4058;
+        transition: all .5s ease;
+    }
+    &:hover::before {
+        top: -50px;
+    }
+}

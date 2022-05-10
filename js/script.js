@@ -1,3 +1,5 @@
+//sliders
+
 $('.vertical-slider').slick({
     infinity: true,
     arrows: false,
@@ -15,12 +17,126 @@ $('.slider').slick({
     slidesToScroll: 1,
     arrows: true,
     dots: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          arrows: false,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      }
+  ]   
 });
+
+
+//Fixed menu
+
+window.onscroll = () => makeFixed();
+
+let header = document.querySelector('.header');
+
+function makeFixed() {
+  if (window.pageYOffset > 0) {
+    header.classList.add("header_fixed");
+  } else {
+    header.classList.remove("header_fixed");
+  }
+}
+
+//Hamburger menu 
+
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav");
+
+hamburger.addEventListener("click", mobileMenu);
+
+function mobileMenu() {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+}
+
+const navLink = document.querySelectorAll(".nav-link");
+
+navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+function closeMenu() {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+}
+//Slow scroll 
+
+const anchors = document.querySelectorAll('a[href*="#"]')
+
+for (let anchor of anchors) {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    
+    const blockID = anchor.getAttribute('href').substring(1);
+    
+    document.getElementById(blockID).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    })
+  })
+}
+
+//Project animation
+
+let animItems = document.querySelectorAll('.projects__img');
+if(animItems.length > 0) {
+  window.addEventListener('scroll', animOnScroll);
+
+  function animOnScroll() {
+    animItems.forEach((animItem) => {
+      const animItemHeight = animItem.offsetHeight;
+      const animItemOffset = offset(animItem).top;
+      const animStart = 4;
+
+      let animItemPoint = window.innerHeight - animItemHeight / animStart;
+      if (animItemHeight > window.innerHeight) {
+        animItemPoint = window.innerHeight - window.innerHeight / animStart;
+      }
+
+      if ((pageYOffset > animItemOffset - animItemPoint) && pageYOffset < (animItemOffset + animItemHeight)) {
+        animItem.classList.add('projects__img_active');
+      } //else {
+      //   animItem.classList.remove('projects__img_active');
+      // }
+    })
+  }
+
+  function offset(el) {
+    const rect = el.getBoundingClientRect();
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    return { top: rect.top + scrollTop, left: rect.left + scrollLeft}
+  }
+}
 
 
 //gallery
 
-lightGallery(document.querySelector('.gallery__photos'));
+lightGallery(document.querySelector('.gallery__photos')), {
+  speed: 500,
+  thumbnail: true,
+};
 
 //map
 
@@ -305,3 +421,50 @@ function initMap() {
 }
 
 window.initMap = initMap;
+
+// form validation
+
+let name = document.querySelector('#name');
+let email = document.querySelector('#email');
+let errorMsg = document.querySelectorAll('.error');
+let form = document.querySelector('.form');
+let btnSubmit = document.querySelector('.form__btn');
+
+btnSubmit.addEventListener('click', (e) => {
+  e.preventDefault();
+  
+  let isName = engine(name, 0, "Name cannot be blank");
+  let isEmail = engine(email, 1, "Please, fill the correct email");
+
+  if(isName && isEmail) {
+    localStorage.name = name.value;
+    localStorage.email = email.value;
+  }
+
+})
+
+function engine(id, serial, message) {
+  let isValidate;
+  if (id == email) {
+    isValidate = ValidateEmail(id)
+  } else if (id == name) {
+    isValidate = id.value.trim() !== ""
+  }
+
+  if (!isValidate) {
+    errorMsg[serial].innerHTML = message;
+    id.style.borderBottom = "2px solid red";
+
+    return false;
+  } else {
+    errorMsg[serial].innerHTML = '';
+    id.style.borderBottom = "1px solid #2C4058";
+
+    return true;
+  }
+}
+
+function ValidateEmail(mail) 
+{
+ return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail.value)
+}
