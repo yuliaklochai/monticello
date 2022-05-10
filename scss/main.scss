@@ -159,19 +159,19 @@ html {
         height: 100vh;
         position: relative;
         &_1::before{
-            @include slider-background(url('../img/slider_1.jpg'));
+            @include slider-background(url('../img/slider_1.webp'));
         }
         &_2::before{
-            @include slider-background(url('../img/slider_2.jpg'));
+            @include slider-background(url('../img/slider_2.webp'));
         }
         &_3::before{
-            @include slider-background(url('../img/slider_3.jpg'));
+            @include slider-background(url('../img/slider_3.webp'));
         }
         &_4::before{
-            @include slider-background(url('../img/slider_1.jpg'));
+            @include slider-background(url('../img/slider_1.webp'));
         }
         &_5::before{
-            @include slider-background(url('../img/slider_5.jpg'));
+            @include slider-background(url('../img/slider_5.webp'));
         }
     }
     &__title{
