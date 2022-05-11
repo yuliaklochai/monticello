@@ -1,50 +1,4 @@
-//sliders
-
-$('.vertical-slider').slick({
-    infinity: true,
-    arrows: false,
-    dots: true,
-    vertical: true,
-    verticalSwiping: false,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-});
-
-$('.slider').slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: true,
-    dots: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: false,
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 576,
-        settings: {
-          arrows: false,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      }
-  ]   
-});
-
-
+'use strict';
 //Fixed menu
 
 window.onscroll = () => makeFixed();
@@ -61,8 +15,8 @@ function makeFixed() {
 
 //Hamburger menu 
 
-const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".nav");
+let hamburger = document.querySelector(".hamburger");
+let navMenu = document.querySelector(".nav");
 
 hamburger.addEventListener("click", mobileMenu);
 
@@ -71,42 +25,35 @@ function mobileMenu() {
     navMenu.classList.toggle("active");
 }
 
-const navLink = document.querySelectorAll(".nav-link");
-
-navLink.forEach(n => n.addEventListener("click", closeMenu));
-
-function closeMenu() {
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
-}
 //Slow scroll 
 
-const anchors = document.querySelectorAll('a[href*="#"]')
+let anchors = document.querySelectorAll('a[href*="#"]')
 
-for (let anchor of anchors) {
+anchors.forEach((anchor) => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
     
-    const blockID = anchor.getAttribute('href').substring(1);
+    let blockID = anchor.getAttribute('href').substring(1);
     
     document.getElementById(blockID).scrollIntoView({
       behavior: 'smooth',
-      block: 'start'
+      block: 'start',
     })
   })
-}
+});
 
 //Project animation
 
 let animItems = document.querySelectorAll('.projects__img');
+
 if(animItems.length > 0) {
   window.addEventListener('scroll', animOnScroll);
 
   function animOnScroll() {
     animItems.forEach((animItem) => {
-      const animItemHeight = animItem.offsetHeight;
-      const animItemOffset = offset(animItem).top;
-      const animStart = 4;
+      let animItemHeight = animItem.offsetHeight;
+      let animItemOffset = offset(animItem).top;
+      let animStart = 4;
 
       let animItemPoint = window.innerHeight - animItemHeight / animStart;
       if (animItemHeight > window.innerHeight) {
@@ -136,7 +83,6 @@ if(animItems.length > 0) {
 lightGallery(document.querySelector('.gallery__photos')), {
   speed: 500,
   thumbnail: true,
-
 };
 
 //map
@@ -447,7 +393,7 @@ btnSubmit.addEventListener('click', (e) => {
 function engine(id, serial, message) {
   let isValidate;
   if (id == email) {
-    isValidate = ValidateEmail(id)
+    isValidate = ValidateEmail(id.value)
   } else if (id == name) {
     isValidate = id.value.trim() !== ""
   }
@@ -467,5 +413,5 @@ function engine(id, serial, message) {
 
 function ValidateEmail(mail) 
 {
- return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail.value)
+  return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)
 }
