@@ -18,13 +18,17 @@
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    transition: all .5s ease;
     &::before {
         @include pseudo-element(190px, 50px, $color_main);
-        top: 49px;
+        top: 60px;
         left: -1px;
         transition: all .5s ease;
     }
-    &:hover::before {
+    &:hover{
+        transform: scale(1.05);
+        &::before {
         top: -50px;
+        }
     }
 }

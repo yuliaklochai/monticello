@@ -358,6 +358,15 @@ function initMap() {
         position: { lat: 40.69365, lng: -73.90056},
         map: map,
         icon: icon,
+        title: 'Hello!',
+        // draggable: true,
+    });
+    const infoWindow = new google.maps.InfoWindow();
+
+    marker.addListener("click", () => {
+      infoWindow.close();
+      infoWindow.setContent(marker.getTitle());
+      infoWindow.open(marker.getMap(), marker);
     });
     marker.addListener("mouseover", () => {
         marker.setOptions({'opacity': 0.5});

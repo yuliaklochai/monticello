@@ -59,7 +59,8 @@ html {
             @include border-radius();
             top: 50%;
             transform: translateY(-50%);
-            left: -25px;
+            left: -1rem;
+            transition: all .5s ease;
         }
         &:hover::before {
             background: #fff;
@@ -75,6 +76,7 @@ html {
         height: 40px;
         text-align: center;
         overflow: hidden;
+        transition: all .5s ease;
         &:hover {
             background: #685cde;
         }
@@ -199,6 +201,7 @@ html {
         @include flex-rule(space-between, row, flex-end, nowrap);
         max-height: 470px;
         margin: 90px 0 140px 0;
+        gap: 20px;
         &_reverse {
             flex-direction: row-reverse;
         }
@@ -439,7 +442,7 @@ html {
     height: 500px;
 }
 .footer {
-    padding: 200px $padding_wrapper 100px;
+    padding: 200px calc(50% - 385px) 100px;
     background: url('../img/footer_background.png'), linear-gradient(251.06deg, $color_secondary -2.19%, $color_main 103.21%);
     background-repeat: no-repeat;
     background-position: bottom;
