@@ -870,7 +870,7 @@ html {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   gap: 10px;
-  margin: 90px 0 60px 0;
+  margin: 90px 0 10px 0;
 }
 
 .gallery__street-view {
@@ -960,7 +960,39 @@ html {
   opacity: 0.8;
 }
 
+.gallery__see-more {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gallery__see-more a {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 calc((100% / 4) - 2rem);
+          flex: 1 1 calc((100% / 4) - 2rem);
+  overflow: hidden;
+  min-width: 150px;
+}
+
+.gallery .no-shown {
+  display: none;
+}
+
 .gallery__button {
+  margin-top: 50px;
   padding: 15px 55px;
 }
 

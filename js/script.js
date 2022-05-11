@@ -85,13 +85,36 @@ lightGallery(document.querySelector('.gallery__photos')), {
   thumbnail: true,
 };
 
+lightGallery(document.querySelector('.gallery__see-more')), {
+  speed: 500,
+  thumbnail: true,
+};
+
+//Show more photos
+
+let btnShow = document.querySelector('.gallery__button');
+let morePhotos = document.querySelector('.gallery__see-more');
+
+btnShow.addEventListener('click', showPhotos);
+
+function showPhotos() {
+
+  morePhotos.classList.toggle("no-shown");
+
+  if (morePhotos.classList.contains("no-shown")) {
+    btnShow.innerText = "See more";
+  } else {
+    btnShow.innerText = "See less";
+  }
+}
+
 //map
 
 function initMap() {
     const map = new google.maps.Map(document.querySelector(".map"), {
         center: { lat: 40.66617, lng: -73.86675 },
         zoom: 12,
-        gestureHandling: 'greedy',
+        // gestureHandling: 'greedy',
         disableDefaultUI: true,
         styles: [
                 {
