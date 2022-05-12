@@ -90,23 +90,35 @@ lightGallery(document.querySelector('.gallery__see-more')), {
   thumbnail: true,
 };
 
-//Show more photos
+//Show more 
 
-let btnShow = document.querySelector('.gallery__button');
+let btnShowPhoto = document.querySelector('.gallery__button');
+let btnsShowMore = document.querySelectorAll('.projects__btn');
+
 let morePhotos = document.querySelector('.gallery__see-more');
+let moreText = document.querySelectorAll('.projects__text_add');
 
-btnShow.addEventListener('click', showPhotos);
+btnShowPhoto.addEventListener('click', () => {
+  showMore(morePhotos, btnShowPhoto, 'See more', 'See less');
+});
 
-function showPhotos() {
+btnsShowMore.forEach((btn, index) => {
+  btn.onclick = () => {
+    showMore(moreText[index], btn, 'More details', 'Less Details');
+  }
+})
 
-  morePhotos.classList.toggle("no-shown");
+function showMore(el, btn, messageMore, messageLess) {
+  el.classList.toggle("no-shown");
 
-  if (morePhotos.classList.contains("no-shown")) {
-    btnShow.innerText = "See more";
+  if (el.classList.contains("no-shown")) {
+    btn.innerText = messageMore;
   } else {
-    btnShow.innerText = "See less";
+    btn.innerText = messageLess;
   }
 }
+
+
 
 //map
 

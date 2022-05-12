@@ -5,6 +5,7 @@
   font-weight: 700;
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
+  position: relative;
 }
 
 @media screen and (max-width: 769px) {
@@ -450,6 +451,19 @@ html {
   overflow: hidden;
 }
 
+.projects__title_main::before {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 1px;
+  background: #2C4058;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: -20px;
+}
+
 .projects__block {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -596,6 +610,19 @@ html {
 .news__title {
   color: #FFFFFF;
   margin-bottom: 90px;
+}
+
+.news__title::before {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 1px;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: -20px;
 }
 
 .news .slick-list {
@@ -853,6 +880,19 @@ html {
   text-align: center;
 }
 
+.gallery__title::before {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 1px;
+  background: #2C4058;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: -20px;
+}
+
 .gallery__container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -987,10 +1027,6 @@ html {
   min-width: 150px;
 }
 
-.gallery .no-shown {
-  display: none;
-}
-
 .gallery__button {
   margin-top: 50px;
   padding: 15px 55px;
@@ -1063,6 +1099,19 @@ html {
 .contact__title {
   text-align: center;
   margin-bottom: 40px;
+}
+
+.contact__title::before {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 1px;
+  background: #2C4058;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: -20px;
 }
 
 .contact__container {
@@ -1238,6 +1287,10 @@ html {
 
 .form .error {
   color: red;
+}
+
+.no-shown {
+  display: none;
 }
 
 @media screen and (max-width: 768px) {

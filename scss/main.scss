@@ -197,6 +197,14 @@ html {
     text-align: center;
     padding: 130px $padding_wrapper;
     overflow: hidden;
+    &__title_main {
+        &::before {
+            @include pseudo-element(100px, 1px, #2C4058);
+            left: 50%;
+            transform: translateX(-50%);
+            top: -20px;
+        }
+    }
     &__block {
         @include flex-rule(space-between, row, flex-end, nowrap);
         max-height: 470px;
@@ -270,6 +278,12 @@ html {
     &__title {
         color: $color_title_light;
         margin-bottom: 90px;
+        &::before {
+            @include pseudo-element(100px, 1px, #fff);
+            left: 50%;
+            transform: translateX(-50%);
+            top: -20px;
+        }
     }
     .slick-list {
         overflow: hidden;
@@ -383,6 +397,12 @@ html {
     text-align: center;
     &__title {
         text-align: center;
+        &::before {
+            @include pseudo-element(100px, 1px, #2C4058);
+            left: 50%;
+            transform: translateX(-50%);
+            top: -20px;
+        }
     }
     &__container {
         @include flex-rule(space-between, row, stretch, nowrap);
@@ -443,9 +463,6 @@ html {
             min-width: 150px;
         }
     }
-    .no-shown {
-        display: none;
-    }
     &__button {
         margin-top: 50px;
         padding: 15px 55px;
@@ -486,6 +503,12 @@ html {
     &__title {
         text-align: center;
         margin-bottom: 40px;
+        &::before {
+            @include pseudo-element(100px, 1px, #2C4058);
+            left: 50%;
+            transform: translateX(-50%);
+            top: -20px;
+        }
     }
     &__container {
         @include flex-rule(space-between, row, stretch, nowrap);
@@ -552,6 +575,10 @@ html {
     & .error {
         color: red;
     }
+}
+
+.no-shown {
+    display: none;
 }
 
 
